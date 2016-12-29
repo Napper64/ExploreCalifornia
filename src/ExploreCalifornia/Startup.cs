@@ -28,9 +28,18 @@ namespace ExploreCalifornia
                 app.UseDeveloperExceptionPage();
             }
 
+            app.Use(async (context, next) =>
+            {
+                if (context.Request.Path.Value.Equals("/Hello"))
+                {
+                    await context.Response.WriteAsync("First Registered Context! ");
+                }
+                    await next();
+            });
+
             app.Run(async (context) =>
             {
-                await context.Response.WriteAsync("Hello World!");
+                await context.Response.WriteAsync("Second Registered Context!");
             });
         }
     }
