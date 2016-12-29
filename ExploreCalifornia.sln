@@ -1,0 +1,32 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{BBDE9250-81E4-440D-9E12-9986F74C31E2}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{75758C31-10CD-491F-A385-ED00D8BAD410}"
+	ProjectSection(SolutionItems) = preProject
+		global.json = global.json
+	EndProjectSection
+EndProject
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "ExploreCalifornia", "src\ExploreCalifornia\ExploreCalifornia.xproj", "{23D872FA-35BA-4DA3-8E42-F7AE8DE226C6}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{23D872FA-35BA-4DA3-8E42-F7AE8DE226C6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{23D872FA-35BA-4DA3-8E42-F7AE8DE226C6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{23D872FA-35BA-4DA3-8E42-F7AE8DE226C6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{23D872FA-35BA-4DA3-8E42-F7AE8DE226C6}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{23D872FA-35BA-4DA3-8E42-F7AE8DE226C6} = {BBDE9250-81E4-440D-9E12-9986F74C31E2}
+	EndGlobalSection
+EndGlobal
