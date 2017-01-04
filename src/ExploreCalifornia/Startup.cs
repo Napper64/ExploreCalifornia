@@ -8,6 +8,8 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Configuration;
+using Microsoft.AspNetCore.Routing;
+using Microsoft.AspNetCore.Builder.Internal;
 
 namespace ExploreCalifornia
 {
@@ -64,10 +66,8 @@ namespace ExploreCalifornia
                 }
                     await next();
             });
-            app.UseMvc(routes =>
-            {
-                routes.MapRoute("Default", "{controller=Home}/{action=Index}/{id:int?}");
-            });
+
+            app.UseMvc(routes => routes.MapRoute("Default", "{controller=Home}/{action=Index}/{id:int?}"));
 
             app.UseFileServer();
         }
