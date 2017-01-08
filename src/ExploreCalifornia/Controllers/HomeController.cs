@@ -8,12 +8,12 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace ExploreCalifornia.Controllers
 {
-    public class HomeController
+    public class HomeController : Controller
     {
         // GET: /<controller>/
-        public string Index()
+        public ViewResult Index()
         {
-            return "Hello there";
+            return View();
         }
     }
 }
