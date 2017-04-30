@@ -22,35 +22,36 @@ namespace ExploreCalifornia.Controllers {
         [Route("")]
         public IActionResult Index()
         {
-
-            IList<Post> posts = new List<Post>();
-            posts.Add(new Post
-            {
-                Title = "My blog post",
-                Posted = DateTime.Now,
-                Author = "Niall McCarthy",
-                Body = "This is a blog post",
-            });
-            posts.Add(new Post
-            {
-                Title = "My second blog post",
-                Posted = DateTime.Now,
-                Author = "Niall McCarthy",
-                Body = "This is another blog post",
-            });
+            IList<Post> posts = _db.Posts.OrderByDescending(x=>x.Posted).Take(5).ToArray();
+            //IList<Post> posts = new List<Post>();
+            //posts.Add(new Post
+            //{
+            //    Title = "My blog post",
+            //    Posted = DateTime.Now,
+            //    Author = "Niall McCarthy",
+            //    Body = "This is a blog post",
+            //});
+            //posts.Add(new Post
+            //{
+            //    Title = "My second blog post",
+            //    Posted = DateTime.Now,
+            //    Author = "Niall McCarthy",
+            //    Body = "This is another blog post",
+            //});
             return View(posts);
         }
 
         [Route("{year:min(2000)}/{month:range(1,12)}/{key}")]
         public IActionResult Post(int year, int month, string key)
         {
-            Post post = new Post
-            {
-                Title = "My blog post",
-                Posted = DateTime.Now,
-                Author = "Niall McCarthy",
-                Body = "This is the body",
-            };
+            Post post = _db.Posts.FirstOrDefault(x => x.Key == key);
+            //Post post = new Post
+            //{
+            //    Title = "My blog post",
+            //    Posted = DateTime.Now,
+            //    Author = "Niall McCarthy",
+            //    Body = "This is the body",
+            //};
 
             return View(post);
         }
@@ -73,7 +74,12 @@ namespace ExploreCalifornia.Controllers {
             _db.Posts.Add(post);
             _db.SaveChanges();
 
-            return View(post);
+            return RedirectToAction("Post", "Blog", new
+            {
+                year = post.Posted.Year,
+                month = post.Posted.Month,
+                key = post.Key
+            });
         }
 
     }
